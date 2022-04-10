@@ -1,17 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import App from './App';
 
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
+
+import React from "react";
+import ReactDOM from "react-dom";
+import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
+
+import App, { Todos } from "./App";
+
+const client = new ApolloClient({
+  uri: "https://graphql-pokeapi.graphcdn.app/",
+  cache: new InMemoryCache()
+});
+
+const rootElement = document.getElementById("root");
 ReactDOM.render(
-  <React.StrictMode>
+  <ApolloProvider client={client}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </ApolloProvider>,
+  rootElement
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

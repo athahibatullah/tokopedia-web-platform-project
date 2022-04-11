@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
-import App, { Todos } from "./App";
+import App, { PokemonList } from "./App";
 
 const client = new ApolloClient({
   uri: "https://graphql-pokeapi.graphcdn.app/",

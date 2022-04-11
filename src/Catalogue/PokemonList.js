@@ -1,6 +1,6 @@
 import React from "react";
 import { gql, useQuery} from '@apollo/client';
-import './Todo.css'
+import './PokemonList.css'
 
 const GET_POKEMONS = gql`
 query pokemons($limit: Int, $offset: Int) {
@@ -42,14 +42,14 @@ query pokemon($name: String!) {
 `;
 
 let getPokemonList = {
-  limit: 100,
+  limit: 120,
   offset: 1,
 };
 let getPokemonDetail = {
   name: "charmander"
 };
 
-export const Todos = () => {
+export const PokemonList = () => {
   const { loading: loadingPokemons, error: errorPokemons, data: pokemonsList } = useQuery(GET_POKEMONS, {
         variables: getPokemonList
     });
@@ -60,26 +60,10 @@ export const Todos = () => {
   if (loadingPokemons) return 'Loading...';
   if (errorPokemons) return `Error! ${errorPokemons.message}`;
 
-//   console.log('Response from server', pokemonDetail.pokemon.moves);
-//   getPokemonDetail = pokemonsList.pokemons.results.map(pokemon => (pokemon.name))
-//   console.log(getPokemonDetail)
-
   let getPokemonData = pokemonsList.pokemons.results
-
-  const pokemonData = getPokemonData.map(pokemon => {
-    const container = {};
-
-    container["name"] = pokemon.name;
-    container["image"] = pokemon.image;
-
-    return container;
-  });
-
-  console.log(pokemonData)
   return (
     <div className="container">
     {getPokemonData.map(pokemon => (
-        //   <li key={pokemon.image}>{pokemon.image}</li>
       <a key={pokemon.url} href={pokemon.url}><img src={pokemon.image}></img><div>{pokemon.name}</div></a>
     ))}
     </div>

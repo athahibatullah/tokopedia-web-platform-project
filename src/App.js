@@ -1,10 +1,10 @@
 import React from "react";
-import { Todos } from "./Todos";
+import { PokemonList } from "./Catalogue/PokemonList";
 
 function App() {
   return (
     <>
-      <Todos />
+      <PokemonList />
     </>
   );
 }

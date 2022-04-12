@@ -1,0 +1,12 @@
+.containerHello{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.containerHello h1{
+    font-weight: 900;
+    font-size: 3vw;
+}
+.containerHello h2{
+    font-size: 2vw;
+}

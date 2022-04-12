@@ -1,7 +1,6 @@
 import React from "react";
 import { gql, useQuery} from '@apollo/client';
 import './PokemonList.css'
-
 const GET_POKEMONS = gql`
 query pokemons($limit: Int, $offset: Int) {
     pokemons(limit: $limit, offset: $offset) {

@@ -1,16 +1,15 @@
-import React from "react"
+import React from 'react';
+import './Button.css';
 import { useNavigate } from "react-router-dom";
-import "./Content.css";
 
-export const Content = () => {
+export const ButtonPokemonList = () => {
     let navigate = useNavigate();
     const routeToHome = () => {
         let path = "/"
         navigate(path)
     }
   return (
-    <div className="containerContentMyPokemon">
-        <input type="text" placeholder="Search"></input>
+    <div className="containerButton">
         <button onClick={routeToHome}>Pokemon List</button>
     </div>
   )

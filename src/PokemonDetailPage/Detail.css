@@ -1,0 +1,14 @@
+.containerDetail{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    border: 4px solid #3C5AA6;
+    align-items: center;
+}
+.containerDetail h1{
+    
+}
+.containerDetail img{
+    width: 15vw;
+}

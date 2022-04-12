@@ -4,12 +4,14 @@
     box-sizing: border-box;
     flex-wrap: wrap;
   }
-.container a{
+.container .catalog{
     flex: 1;
     border: 1px solid #3C5AA6;
     text-align: center;
-    text-decoration: none; 
-    color: #3C5AA6;
-    font-weight: 600;
-    font-size: 15px;
+}
+#PokemonName{
+  text-decoration: none;
+  color: #3C5AA6;
+  font-weight: 600;
+  font-size: 15px;
 }

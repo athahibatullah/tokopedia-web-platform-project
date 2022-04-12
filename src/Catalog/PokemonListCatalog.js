@@ -1,6 +1,7 @@
 import React from "react";
 import { gql, useQuery} from '@apollo/client';
-import './PokemonListCatalog.css'
+import './PokemonListCatalog.css';
+import { Link } from "react-router-dom";
 const GET_POKEMONS = gql`
 query pokemons($limit: Int, $offset: Int) {
     pokemons(limit: $limit, offset: $offset) {
@@ -41,7 +42,7 @@ query pokemon($name: String!) {
 `;
 
 let getPokemonList = {
-  limit: 120,
+  limit: 898,
   offset: 1,
 };
 let getPokemonDetail = {
@@ -62,9 +63,16 @@ export const PokemonListCatalog = () => {
   let getPokemonData = pokemonsList.pokemons.results
   return (
     <div className="container">
-    {getPokemonData.map(pokemon => (
-      <a key={pokemon.url} href={pokemon.url}><img src={pokemon.image}></img><div>{pokemon.name}</div></a>
-    ))}
+      {getPokemonData.map(pokemon => (
+        <div className="catalog" key={pokemon.url}>
+          <Link to="/detail" state={pokemon.name} >
+              <img src={pokemon.image}></img>
+              <div>{pokemon.name}</div>
+          </Link>
+        </div>
+        
+      ))}
+      
     </div>
   );
 };

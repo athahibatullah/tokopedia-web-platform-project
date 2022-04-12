@@ -1,6 +1,6 @@
 import React from "react";
 import { gql, useQuery} from '@apollo/client';
-import './PokemonList.css'
+import './PokemonListCatalog.css'
 const GET_POKEMONS = gql`
 query pokemons($limit: Int, $offset: Int) {
     pokemons(limit: $limit, offset: $offset) {
@@ -48,7 +48,7 @@ let getPokemonDetail = {
   name: "charmander"
 };
 
-export const PokemonList = () => {
+export const PokemonListCatalog = () => {
   const { loading: loadingPokemons, error: errorPokemons, data: pokemonsList } = useQuery(GET_POKEMONS, {
         variables: getPokemonList
     });

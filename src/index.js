@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
+
 import App, { PokemonList } from "./App";
 
 const client = new ApolloClient({
@@ -12,7 +13,7 @@ const client = new ApolloClient({
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <App />
+      <App />
   </ApolloProvider>,
   rootElement
 );

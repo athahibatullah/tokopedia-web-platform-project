@@ -1,7 +1,8 @@
 import React from "react";
 import { gql, useQuery} from '@apollo/client';
 import { useLocation } from 'react-router-dom';
-import './Detail.css'
+import './Detail.css';
+import Catch from "./Catch";
 
 const GET_POKEMON_DETAIL = gql`
 query pokemon($name: String!) {
@@ -39,6 +40,7 @@ export const Detail = () => {
     if (errorPokemonDetail) return `Error! ${errorPokemonDetail.message}`;
     let pokemonType = pokemonDetail.pokemon.types[0].type.name;
     let pokemonMoves = pokemonDetail.pokemon.moves;
+    localStorage.setItem('CurrentPoke', JSON.stringify({name: data.name, image: pokemonImage}));
     return (
         <div className="containerDetail">
             <h1>{getPokemonDetail.name}</h1>

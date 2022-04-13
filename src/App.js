@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { PokemonList } from "./PokemonListPage/PokemonList"
+import { PokemonList } from "./PokemonListPage/PokemonList";
 import { PokemonDetail } from "./PokemonDetailPage/PokemonDetail";
-import { MyPokemon } from "./MyPokemonListPage/MyPokemon"
+import { MyPokemon } from "./MyPokemonListPage/MyPokemon";
 
 function App() {
   return (

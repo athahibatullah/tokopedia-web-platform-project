@@ -1,16 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import './Modal.css';
+import { v4 as uuidv4 } from 'uuid';
 
-export const Modal = ({ handleClose, show, children }) => {
+export const Modal = ({ handleClose, show, children}) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
   const [pokemonName, setPokemonName] = useState('');
   function handle(){
+    let pokeData = JSON.parse(localStorage.getItem('CurrentPoke'))
+    let id = uuidv4();
+    let newPokemon = {id: id, Uname: pokemonName, species: pokeData.name, image: pokeData.image}
     localStorage.setItem('Name', pokemonName);
-    alert(localStorage.getItem('Name'))
+    localStorage.setItem(id, JSON.stringify(newPokemon))
+    localStorage.removeItem('CurrentPoke');
+    alert("Congratulations! " + localStorage.getItem('Name') + " is now in your inventory");
   }
 
   return (
-    <div className={showHideClassName}>
+    <>
+      <div className={showHideClassName}>
       <section className="modal-main">
         {children}
         <div className="containerModal">
@@ -21,8 +28,9 @@ export const Modal = ({ handleClose, show, children }) => {
             <button type="button" onClick={handleClose}>
                 Cancel
             </button><br></br>
-        </div>
+      </div>
       </section>
     </div>
+    </>
   );
 };

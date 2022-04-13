@@ -45,16 +45,10 @@ let getPokemonList = {
   limit: 898,
   offset: 1,
 };
-let getPokemonDetail = {
-  name: "charmander"
-};
 
 export const PokemonListCatalog = () => {
   const { loading: loadingPokemons, error: errorPokemons, data: pokemonsList } = useQuery(GET_POKEMONS, {
         variables: getPokemonList
-    });
-  const { loading: loadingPokemonDetail, error: errorPokemonDetail, data: pokemonDetail} = useQuery(GET_POKEMON_DETAIL, {
-        variables: getPokemonDetail
     });
 
   if (loadingPokemons) return 'Loading...';

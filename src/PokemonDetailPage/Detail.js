@@ -46,9 +46,9 @@ export const Detail = () => {
             <h2>Type: {pokemonType}</h2>
             <h2>Move: </h2>
             <ul>
-              {pokemonMoves.map(moves => (
+              {/* {pokemonMoves.map(moves => (
                   <li key={moves.move.name}> {moves.move.name}</li>  
-                ))}
+                ))} */}
             </ul>
         </div>
     )

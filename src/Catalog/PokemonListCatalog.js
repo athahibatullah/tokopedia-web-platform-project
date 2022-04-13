@@ -61,7 +61,7 @@ export const PokemonListCatalog = () => {
         <div className="catalog" key={pokemon.url}>
           <Link to="/detail" state={{name: pokemon.name, image: pokemon.image}} style={ {textDecoration: 'none'}}>
               <img src={pokemon.image}></img>
-              <div id="PokemonName">{pokemon.name}</div>
+              <div className="PokemonName">{pokemon.name}</div>
           </Link>
         </div>
         

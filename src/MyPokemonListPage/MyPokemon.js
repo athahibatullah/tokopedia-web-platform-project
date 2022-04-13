@@ -1,7 +1,8 @@
 import React from 'react';
 import { Header } from "./Header";
 import { Content } from "./Content";
-import { Owned } from "./Owned"
+import { Owned } from "./Owned";
+import { MyCatalog } from './Content';
 
 export const MyPokemon = () => {
   return (
@@ -9,6 +10,7 @@ export const MyPokemon = () => {
       <Header/>
       <Owned/>
       <Content/>
+      <MyCatalog/>
     </>
   )
 }

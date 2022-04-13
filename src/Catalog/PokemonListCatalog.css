@@ -9,7 +9,7 @@
     border: 1px solid #3C5AA6;
     text-align: center;
 }
-#PokemonName{
+.PokemonName{
   color: #3C5AA6;
   font-weight: 600;
   font-size: 15px;

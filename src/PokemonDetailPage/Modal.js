@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import './Modal.css';
 import { v4 as uuidv4 } from 'uuid';
+import { useNavigate } from 'react-router-dom';
 
 let probability = null;
 
 export const Modal = ({ handleClose, show, children}) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
   const [pokemonName, setPokemonName] = useState('');
+  let navigate = useNavigate();
+  const routeToMyPokemon = () => {
+      let path = "/mypokemon"
+      navigate(path)
+  }
   if(pokemonName == '' || !show){
     probability = Math.floor(Math.random() * 2);
   }
@@ -14,12 +20,12 @@ export const Modal = ({ handleClose, show, children}) => {
     let pokeData = JSON.parse(localStorage.getItem('CurrentPoke'))
     let id = uuidv4();
     let newPokemon = {id: id, Uname: pokemonName, species: pokeData.name, image: pokeData.image};
-    localStorage.setItem('Name', pokemonName);
     localStorage.setItem(id, JSON.stringify(newPokemon));
     localStorage.removeItem('CurrentPoke');
-    alert("Congratulations! " + localStorage.getItem('Name') + " is now in your inventory");
+    alert("Congratulations! " + pokemonName + " is now in your inventory");
+    routeToMyPokemon();
   }
-  console.log(probability)
+  
   if(probability){
     return (
       <>

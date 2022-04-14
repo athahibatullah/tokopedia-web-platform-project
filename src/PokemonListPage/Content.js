@@ -16,13 +16,25 @@ export const Header = () => {
 }
 
 export const Hello = () => {
-    let Owned = Object.keys({...localStorage}).length;
-    return (
-        <div className="containerHello">
-            <h1>Hello Anonim</h1>
-            <h2>{Owned} Pokemon Owned</h2>
-        </div>
-    )
+  let time = new Date();
+  let hours = time.getHours();
+  let Owned = Object.keys({...localStorage}).length;
+  let greet = null;
+    if(hours >= 5 && hours < 12){
+      greet = "Good Morning!";
+    }
+    else if(hours >= 12 && hours <= 17){
+      greet = "Good Afternoon!";
+    }
+    else if(hours >= 18 && hours <= 4){
+      greet = "Good Evening!";
+    }
+  return (
+      <div className="containerHello">
+          <h1>{greet}</h1>
+          <h2>{Owned} Pokemon Owned</h2>
+      </div>
+  )
 }
 
 

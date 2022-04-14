@@ -42,6 +42,9 @@
     height: 5vw;
     font-size: 2vw;
 }
+.containerContent button:hover{
+    cursor: pointer;
+}
 
 .container {
     display: flex;

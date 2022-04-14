@@ -38,6 +38,9 @@
     height: 5vw;
     font-size: 2vw;
 }
+.containerButton button:hover{
+    cursor: pointer;
+}
 
 .containerCatch{
     display: flex;
@@ -53,4 +56,7 @@
     height: 5vw;
     font-size: 2vw;
     font-weight: 600;
+}
+.containerCatch button:hover{
+    cursor: pointer;
 }

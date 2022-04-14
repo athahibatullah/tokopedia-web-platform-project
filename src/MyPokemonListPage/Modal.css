@@ -1,0 +1,6 @@
+.containerConfirm{
+    display: flex;
+}
+.containerModal button:hover{
+    cursor: pointer;
+}

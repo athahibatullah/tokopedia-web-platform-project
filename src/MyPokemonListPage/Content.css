@@ -27,6 +27,7 @@
     display: flex;
     justify-content: space-between;
     flex: 1 1 auto;
+    flex-direction: row;
 }
 .containerContentMyPokemon button {
     border-radius: 5px;
@@ -38,6 +39,9 @@
     height: 5vw;
     font-size: 2vw;
 }
+.containerContentMyPokemon button:hover{
+    cursor: pointer;
+}
 .containerMyCatalog{
     display: flex;
     border: 4px solid #3C5AA6;
@@ -48,4 +52,22 @@
     flex: 1;
     border: 1px solid #3C5AA6;
     text-align: center;
+}
+
+.containerConfirm{
+    display: flex;
+    justify-content: center;
+}
+.containerConfirm button{
+    border-radius: 5px;
+    color: #FFCB05;
+    outline: none;
+    background-color: #2A75BB;
+    box-sizing: border-box;
+    width: 15vw;
+    height: 4vw;
+    font-size: 2vw;
+}
+.containerConfirm button:hover{
+    cursor: pointer;
 }

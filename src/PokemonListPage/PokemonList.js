@@ -1,7 +1,7 @@
 import React from "react";
-import { PokemonListCatalog } from "../Catalog/PokemonListCatalog";
-import { Header } from "./Header";
-import { Hello } from "./Hello";
+import { PokemonListCatalog } from "./Content";
+import { Header } from "./Content";
+import { Hello } from "./Content";
 import { Content } from "./Content";
 
 export const PokemonList = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Header } from "./Header";
+import { Header } from "./Content";
 import { Content } from "./Content";
-import { Owned } from "./Owned";
+import { Owned } from "./Content";
 import { MyCatalog } from './Content';
 
 export const MyPokemon = () => {

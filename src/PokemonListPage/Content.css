@@ -1,3 +1,33 @@
+.containerHeader{
+    display: flex;
+    align-items: stretch;
+    box-sizing: border-box;
+    background: rgb(219,96,192);
+    background: linear-gradient(90deg, rgba(219,96,192,1) 28%, rgba(240,33,33,1) 100%);
+}
+.containerHeader h1{
+    color: #FFCB05;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-weight: 950;
+    text-shadow: 5px 5px 5px #3C5AA6;
+    font-size: 5vw;
+}
+
+.containerHello{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.containerHello h1{
+    font-weight: 900;
+    font-size: 3vw;
+}
+.containerHello h2{
+    font-size: 2vw;
+}
+
 .containerContent {
     display: flex;
     justify-content: space-between;
@@ -12,6 +42,24 @@
     height: 5vw;
     font-size: 2vw;
 }
+
+.container {
+    display: flex;
+    border: 4px solid #3C5AA6;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+  }
+.container .catalog{
+    flex: 1;
+    border: 1px solid #3C5AA6;
+    text-align: center;
+}
+.PokemonName{
+  color: #3C5AA6;
+  font-weight: 600;
+  font-size: 15px;
+}
+
 /* .containerContent input {
     background: url(../search.png) no-repeat scroll 7px 7px;
     padding-left:30px;

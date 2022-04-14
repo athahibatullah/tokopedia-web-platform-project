@@ -1,3 +1,28 @@
+.containerHeader{
+    display: flex;
+    align-items: stretch;
+    box-sizing: border-box;
+    background: rgb(219,96,192);
+    background: linear-gradient(90deg, rgba(219,96,192,1) 28%, rgba(240,33,33,1) 100%);
+}
+.containerHeader h1{
+    color: #FFCB05;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-weight: 950;
+    text-shadow: 5px 5px 5px #3C5AA6;
+    font-size: 5vw;
+}
+
+.containerOwned{
+    display: flex;
+    justify-content: center;
+}
+.containerOwned h1{
+    font-size: 2vw;
+}
+
 .containerContentMyPokemon{
     display: flex;
     justify-content: space-between;

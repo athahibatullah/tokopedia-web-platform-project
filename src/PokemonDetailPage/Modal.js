@@ -35,6 +35,9 @@ export const Modal = ({ handleClose, show, children}) => {
     if(poke){
       alert("You already have pokemon with that name");
     }
+    else if(pokemonName.length === 0){
+      alert("You haven't named your pokemon at all :(");
+    }
     else{
       let pokeData = JSON.parse(localStorage.getItem('CurrentPoke'));
       let id = uuidv4();

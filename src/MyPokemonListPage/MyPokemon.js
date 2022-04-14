@@ -3,7 +3,6 @@ import { Header } from "./Content";
 import { Content } from "./Content";
 import { Owned } from "./Content";
 import { MyCatalog } from './Content';
-import Confirm from './Content'
 
 export const MyPokemon = () => {
   return (
@@ -12,7 +11,6 @@ export const MyPokemon = () => {
       <Owned/>
       <Content/>
       <MyCatalog/>
-      <Confirm/>
     </>
   )
 }

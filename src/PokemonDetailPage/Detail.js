@@ -21,9 +21,7 @@ export const ButtonPokemonList = () => {
       navigate(path)
   }
 return (
-  <div className="containerButton">
-      <button onClick={routeToHome}>Pokemon List</button>
-  </div>
+  <button onClick={routeToHome}>Pokemon List</button>
 )
 }
 
@@ -66,15 +64,19 @@ export const Detail = () => {
     localStorage.setItem('CurrentPoke', JSON.stringify({name: data.name, image: pokemonImage}));
     return (
         <div className="containerDetail">
-            <h1>{getPokemonDetail.name}</h1>
-            <img  width="200" height="150" src={pokemonImage}></img>
-            <h2>Type: {pokemonType}</h2>
-            <h2>Move: </h2>
-            <ul>
-              {/* {pokemonMoves.map(moves => (
-                  <li key={moves.move.name}> {moves.move.name}</li>  
-                ))} */}
-            </ul>
+            <div className="containerDetailContent">
+              <h1>{getPokemonDetail.name}</h1>
+              <img  width="200" height="150" src={pokemonImage}></img>
+              <h2>Type: {pokemonType}</h2>
+              <h2>Move: </h2>
+            </div>
+            <div className="containerMove">
+              <ul>
+                {pokemonMoves.map(moves => (
+                    <div key={moves.move.name}> {moves.move.name}</div>  
+                  ))}
+              </ul>
+            </div>
         </div>
     )
 }

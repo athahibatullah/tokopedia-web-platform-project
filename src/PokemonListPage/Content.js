@@ -26,7 +26,7 @@ export const Hello = () => {
     else if(hours >= 12 && hours <= 17){
       greet = "Good Afternoon!";
     }
-    else if(hours >= 18 && hours <= 4){
+    else if(hours >= 18 && hours <= 23 || hours >= 0 && hours <= 4){
       greet = "Good Evening!";
     }
   return (
@@ -46,7 +46,6 @@ export const Content = () =>  {
   }
   return (
       <div className="containerContent">
-          <input type="text" placeholder="Search"></input>
           <button onClick={routeToMyPokemon}>My Pokemon List</button>
       </div>
   )
@@ -110,7 +109,7 @@ export const PokemonListCatalog = () => {
       {getPokemonData.map(pokemon => (
         <div className="catalog" key={pokemon.url}>
           <Link to="/detail" state={{name: pokemon.name, image: pokemon.image}} style={ {textDecoration: 'none'}}>
-              <img width="140" height="105" src={pokemon.image}></img>
+              <img width="96" height="96" src={pokemon.image} alt={pokemon.name}></img>
               <div className="PokemonName">{pokemon.name}</div>
           </Link>
         </div>

@@ -1,8 +1,6 @@
 import React, {Component, useState} from "react"
 import { useNavigate } from "react-router-dom";
 import "./Content.css";
-import { Modal} from './Modal.js';
-import './Modal.css'
 
 export const Header = () => { 
     
@@ -15,8 +13,8 @@ export const Header = () => {
   )
 }
 
-export const Owned = () => {
-  const [Owned, setOwned] = useState(Object.keys({...localStorage}).length);
+export const Owned = (count) => {
+  const Owned = Object.keys({...localStorage}).length;
   return (
     <div className="containerOwned">
         <h1>You owned {Owned} Pokemons so far</h1>
@@ -32,42 +30,10 @@ export const Content = () => {
     }
   return (
     <div className="containerContentMyPokemon">
-        <input type="text" placeholder="Search"></input>
         <button onClick={routeToHome}>Pokemon List</button>
     </div>
   )
 }
-
-class Confirm extends Component{
-  constructor(){
-      super();
-      this.state = {
-          show: false
-      };
-      this.showModal = this.showModal.bind(this);
-      this.hideModal = this.hideModal.bind(this);
-  }
-  showModal = () => {
-      this.setState({ show: true });
-    };
-  
-  hideModal = () => {
-      this.setState({ show: false });
-  };
-  render() {
-      return (
-        <main>
-          <Modal show={this.state.show} handleClose={this.hideModal}>
-          </Modal>
-          <div className="containerConfirm">
-              <button type="button" onClick={this.showModal}>Release All</button>
-          </div>
-        </main>
-      );
-  }
-}
-
-export default Confirm;
 
 export const MyCatalog = () => {
   let showPokemon = {...localStorage}
@@ -84,13 +50,14 @@ export const MyCatalog = () => {
     const newPokeData = pokeData.filter((item) => item.id !== id);
     setpokeData(newPokeData)
     localStorage.removeItem(id)
+    window.location.reload();
   }
   return(
     <div className="containerMyCatalog">
       {pokeData.map(pokemon => (
         <div className="myCatalog" key={pokemon.id}>
           <div className="PokemonName">{pokemon.species}</div>
-          <img  width="140" height="105" src={pokemon.image}></img>
+          <img  width="96" height="96" src={pokemon.image} alt={pokemon.species}></img>
           <div className="PokemonName">{pokemon.Uname}</div>
           <button type="button" onClick={e => releasePoke(e, pokemon.id)}>Release</button>
         </div> 

@@ -1,4 +1,4 @@
-import React, {Component} from "react"
+import React, {Component, useState} from "react"
 import { useNavigate } from "react-router-dom";
 import "./Content.css";
 import { Modal} from './Modal.js';
@@ -16,7 +16,7 @@ export const Header = () => {
 }
 
 export const Owned = () => {
-  let Owned = Object.keys({...localStorage}).length;
+  const [Owned, setOwned] = useState(Object.keys({...localStorage}).length);
   return (
     <div className="containerOwned">
         <h1>You owned {Owned} Pokemons so far</h1>
@@ -73,10 +73,17 @@ export const MyCatalog = () => {
   let showPokemon = {...localStorage}
   let key = Object.keys(showPokemon)
   let keyLength = key.length;
-  let pokeData = [];
+  let dataLocal = [];
   
   for(let i=0;i<keyLength;i++){
-    pokeData.push(JSON.parse(localStorage.getItem([key[i]])))
+    dataLocal.push(JSON.parse(localStorage.getItem([key[i]])))
+  }
+  const [pokeData, setpokeData] = useState(dataLocal);
+  function releasePoke(e, id){
+    e.preventDefault();
+    const newPokeData = pokeData.filter((item) => item.id !== id);
+    setpokeData(newPokeData)
+    localStorage.removeItem(id)
   }
   return(
     <div className="containerMyCatalog">
@@ -85,6 +92,7 @@ export const MyCatalog = () => {
           <div className="PokemonName">{pokemon.species}</div>
           <img  width="140" height="105" src={pokemon.image}></img>
           <div className="PokemonName">{pokemon.Uname}</div>
+          <button type="button" onClick={e => releasePoke(e, pokemon.id)}>Release</button>
         </div> 
       ))}
     </div>

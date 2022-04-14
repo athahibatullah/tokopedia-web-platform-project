@@ -19,6 +19,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 .containerHello h1{
     font-weight: 900;

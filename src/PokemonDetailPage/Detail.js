@@ -67,7 +67,7 @@ export const Detail = () => {
     return (
         <div className="containerDetail">
             <h1>{getPokemonDetail.name}</h1>
-            <img src={pokemonImage}></img>
+            <img  width="200" height="150" src={pokemonImage}></img>
             <h2>Type: {pokemonType}</h2>
             <h2>Move: </h2>
             <ul>

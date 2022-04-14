@@ -17,13 +17,33 @@ export const Modal = ({ handleClose, show, children}) => {
     probability = Math.floor(Math.random() * 2);
   }
   function handle(){
-    let pokeData = JSON.parse(localStorage.getItem('CurrentPoke'))
-    let id = uuidv4();
-    let newPokemon = {id: id, Uname: pokemonName, species: pokeData.name, image: pokeData.image};
-    localStorage.setItem(id, JSON.stringify(newPokemon));
-    localStorage.removeItem('CurrentPoke');
-    alert("Congratulations! " + pokemonName + " is now in your inventory");
-    routeToMyPokemon();
+    let showPokemon = {...localStorage};
+    let key = Object.keys(showPokemon)
+    let keyLength = key.length;
+    let pokeDatas = [];
+    for(let i=0;i<keyLength;i++){
+      pokeDatas.push(JSON.parse(localStorage.getItem([key[i]])))
+    }
+    const poke = pokeDatas.find(pokemon =>{
+      if(pokemon.Uname === pokemonName){
+        return true;
+      }
+      else{
+        return false;
+      }
+    })
+    if(poke){
+      alert("You already have pokemon with that name");
+    }
+    else{
+      let pokeData = JSON.parse(localStorage.getItem('CurrentPoke'));
+      let id = uuidv4();
+      let newPokemon = {id: id, Uname: pokemonName, species: pokeData.name, image: pokeData.image};
+      localStorage.setItem(id, JSON.stringify(newPokemon));
+      localStorage.removeItem('CurrentPoke');
+      alert("Congratulations! " + pokemonName + " is now in your inventory");
+      routeToMyPokemon()
+    }
   }
   
   if(probability){

@@ -28,10 +28,6 @@ export const Hello = () => {
 
 export const Content = () =>  {
   let navigate = useNavigate();
-  const routeToDetail = () => {
-      let path = "detail"
-      navigate(path)
-  }
   const routeToMyPokemon = () => {
       let path = "mypokemon"
       navigate(path)
@@ -102,7 +98,7 @@ export const PokemonListCatalog = () => {
       {getPokemonData.map(pokemon => (
         <div className="catalog" key={pokemon.url}>
           <Link to="/detail" state={{name: pokemon.name, image: pokemon.image}} style={ {textDecoration: 'none'}}>
-              <img src={pokemon.image}></img>
+              <img width="140" height="105" src={pokemon.image}></img>
               <div className="PokemonName">{pokemon.name}</div>
           </Link>
         </div>

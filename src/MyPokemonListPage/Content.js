@@ -53,9 +53,9 @@ export const MyCatalog = () => {
       {pokeData.map(pokemon => (
         <div className="myCatalog" key={pokemon.id}>
           <div className="PokemonName">{pokemon.species}</div>
-          <img src={pokemon.image}></img>
+          <img  width="140" height="105" src={pokemon.image}></img>
           <div className="PokemonName">{pokemon.Uname}</div>
-          <button onClick={deletePokemon(pokemon.id)}>Delete</button>
+          {/* <button onClick={deletePokemon(pokemon.id)}>Delete</button> */}
         </div> 
       ))}
     </div>

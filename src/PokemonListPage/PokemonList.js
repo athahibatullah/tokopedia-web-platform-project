@@ -5,6 +5,7 @@ import { Hello } from "./Content";
 import { Content } from "./Content";
 
 export const PokemonList = () => {
+    localStorage.removeItem('CurrentPoke');
     return (
         <>
         <Header/>
